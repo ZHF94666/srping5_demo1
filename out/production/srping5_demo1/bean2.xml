@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <bean id="userDaoImpl" class="com.atguigu.spring5.dao.impl.UserDaoImpl"></bean>
+
+    <bean id="userService" class="com.atguigu.spring5.service.UserService">
+        <property name="userDao" ref="userDaoImpl"></property>
+    </bean>
+
+    <bean id="stu" class="com.atguigu.spring5.bean.Stu">
+        <property name="course">
+            <array >
+                <value>计算机</value>
+                <value>微积分</value>
+            </array>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>张三</value>
+                <value>小张三</value>
+            </list>
+        </property>
+
+        <property name="maps">
+            <map>
+                <entry key="一班" value="大傻吊"></entry>
+                <entry key="二班" value="大聪明"></entry>
+            </map>
+        </property>
+
+        <property name="sets">
+            <set>
+                <value>mysql</value>
+                <value>h5</value>
+            </set>
+        </property>
+
+        <property name="courseList">
+            <list>
+            <ref bean="course1"></ref>
+            <ref bean="course2"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="course1" class="com.atguigu.spring5.bean.Course">
+        <property name="cname" value="c语音"></property>
+    </bean>
+    <bean id="course2" class="com.atguigu.spring5.bean.Course">
+        <property name="cname" value="go语音"></property>
+    </bean>
+</beans>
